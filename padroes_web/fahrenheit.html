@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrenheit para celsius</title>
+</head>
+<style>
+    .hipertermia {
+        color: red;
+    }
+    .febre_alta {
+        color: orange;
+    }
+    .febre {
+        color: yellow;
+    }
+    .normal {
+        color: green;
+    }
+    .hipotermia {
+        color: blue;
+    }
+</style>
+<body>
+    <h1>Conversor temperatura</h1>
+    <h2>Fahrenheit - Celsius</h2>
+    <label for="fahrenheit">Fahrenheit</label>
+    <input type="text" id="fahrenheit">
+
+    <p>Fórmula: C = (F - 32) / 1,8</p> 
+    <p>Celsius:<span id="c"></span></p>
+    <br>
+    <button onclick="calcula()">Converter Fahrenheit -> Celsius</button>
+    <br>
+    <h3>Situação: <span id="situacao"></span></h3>
+
+    <script>
+        function calcula() {
+            let f = parseFloat(document.getElementById("fahrenheit").value);
+            let c = (f - 32) / 1.8;
+            document.getElementById("c").innerHTML = c;
+        
+
+        let situacao = document.getElementById("situacao");
+    situacao.classList.remove("hipertermia", "febre_alta", "febre", "normal", "hipotermia");
+    if (c < 36) {
+        situacao.textContent = "Menos de 36°";
+        situacao.classList.add("hipotermia");
+    } else if (c <= 37.5) {
+        situacao.textContent = "36° a 37,5°";
+        situacao.classList.add("normal");
+    } else if (c <= 39.5) {
+        situacao.textContent = "37,6°a 39,5°";
+        situacao.classList.add("febre");
+    } else if (c <= 41) {
+        situacao.textContent = "39,6° a 41°";
+        situacao.classList.add("febre_alta");
+    } else if (c > 41) {
+        situacao.textContent = "Acima de 41°";
+        situacao.classList.add("hipertermia");
+    }
+}
+    </script>
+</body>
+</html>
