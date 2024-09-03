@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem Crescente</title>
+</head>
+<body>
+    <h3>Classificar em ordem crescente</h3>
+
+
+    <script type="text/JavaScript">
+        /* objetivo: desenvolver um programa que receba dois valores inteiros e 
+        em seguida classifique os dois valores em ordem crescente.
+        dica: criar uma terceira variável para fazer a troca de valores */ 
+
+        // definição das variáveis
+        var n1;
+        var n2;
+        var n3;
+
+        // entrada de dados
+        n1 = parseInt(window.prompt('Informe o valor do primeiro número: ','00'));
+        n2 = parseInt(window.prompt('Informe o valor do segundo número: ','00'));
+
+        // saída de dados
+        document.write('Primeiro número digitado: ' + n1 +' '); 
+        document.write('Segundo número digitado: ' + n2);
+
+        // saída de dados com classificação usando o if
+
+       if(n1 > n2) {
+            n3 = n1;
+            n1 = n2;
+            n2 = n3;
+        } 
+
+        // saída para o usuário
+
+        document.write('<p><b>Classificação em ordem crescente: </p></b> ' + n1 + ' e ' + n2);
+        
+
+    </script>
+</body>
+</html>
