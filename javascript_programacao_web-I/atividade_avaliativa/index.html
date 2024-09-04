@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule seu salário</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(19, 69, 134);
+            color: aliceblue;
+            padding-top: 180px;
+        }           
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-weight: bold;
+            text-align: center;
+            background-color: aliceblue;
+            color: rgb(19, 69, 134);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Objetivo: Receber dados dos usuários para calcular o salário a receber
+      com base nas horas trabalhadas, valor da hora trabalhada e o desconto do INSS. -->
+
+    <!-- Entrada de dados -->
+    <h1>Calcule seu Salário</h1>
+    <hr>
+    <p>Quantidade de horas trabalhadas: (135 a 180)</p>
+    <input id="id_qtd" type="number" placeholder="Digite aqui">
+    
+    <p>Valor das horas trabalhadas: (25 a 50)</p>
+    <input id="id_valor" type="number" placeholder="Digite aqui">
+    
+    <p>Percentual de desconto do INSS: (5 a 15)</p>
+    <input id="id_inss" type="number" placeholder="Digite aqui">
+    <br><br>
+    <button onclick="obter_valor()">Calcular</button>
+    <hr>
+
+    <!-- Saída de dados para o usuário-->
+    <p>Salário Bruto = <span id="id_bruto"></span></p>
+    <p>Total de desconto do INSS = <span id="id_inss_desc"></span></p>
+    <p>Salário Líquido = <span id="id_liquido"></span></p>
+    <h3 id="id_insatisfatorio"></h3>
+
+    <script type="text/JavaScript">
+       // Definição das variáveis
+       var qtd_horas;
+       var valor_horas;
+       var perc_inss;       
+       var sal_bruto;
+       var sal_liquido;
+       var desc_inss; 
+
+       // Função para coletar dados
+       function obter_valor() {
+        qtd_horas = parseFloat(document.getElementById('id_qtd').value);
+        valor_horas = parseFloat(document.getElementById('id_valor').value);
+        perc_inss = parseFloat(document.getElementById('id_inss').value);
+        sal_bruto = qtd_horas * valor_horas;
+        sal_liquido = sal_bruto - (sal_bruto * perc_inss / 100);
+        desc_inss = sal_bruto * perc_inss / 100;
+
+        // Estrutura de condição: Requisitos do programa
+        if (qtd_horas < 135 || valor_horas < 25 || perc_inss < 5 || qtd_horas > 180 || valor_horas > 50 || perc_inss > 15) {
+            alert('Valor inválido');
+            return;
+        }
+
+        // Saída de dados
+        document.getElementById("id_bruto").innerHTML = sal_bruto;
+        document.getElementById("id_inss_desc").innerHTML = desc_inss;
+        document.getElementById("id_liquido").innerHTML = sal_liquido;
+
+        // Estrutura de condição: Requisitos do programa
+        if (sal_liquido <= 3000) {
+            document.getElementById("id_insatisfatorio").innerHTML = ("Salário inSatisfatório!");
+        }
+    }
+    </script>
+    <footer>ADS - 2º A - Prof: Valdemir - Linguagem de Programação para Web I - Aluno: Bruno Machado Luna</footer>
+</body>
+</html>
