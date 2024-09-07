@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch</title>
+</head>
+<body>
+    <form name="formcalendario" method="post">
+        Digite o mês: <input type="text" name="f_mes" size="4" maxlength="2">
+        <br>
+        <input type="button" name="btn_processar" value="Processar" onclick="verificanomes()">
+
+        <input type="reset" name="btn_cancelar" value="Cancelar">
+        <br>
+        <br>
+        O mês correspondente é: <input type="text" name="nomemes" size="18" maxlength="15">
+    </form>
+
+    <script language="JavaScript">
+        // usando o recurso de seleção multipla - switch...case, pesquisaro nome do mês referente 
+        // do mês digitado
+
+        // definição de variáveis
+        var js_mes;
+
+        // criar uma função para capturar os dados do formulario de acordo com a seleção múltipla
+        function verificanomes() {
+            js_mes = parseInt(document.formcalendario.f_mes.value);
+
+            switch(js_mes) {
+                case 1 : document.formcalendario.nomemes.value = 'Janeiro';break;
+                case 2 : document.formcalendario.nomemes.value = 'Fevereiro';break;
+                case 3 : document.formcalendario.nomemes.value = 'Março';break;
+                case 4 : document.formcalendario.nomemes.value = 'Abril';break;
+                case 5 : document.formcalendario.nomemes.value = 'Maio';break;
+                case 6 : document.formcalendario.nomemes.value = 'Junho';break;
+                case 7 : document.formcalendario.nomemes.value = 'Julho';break;
+                case 8 : document.formcalendario.nomemes.value = 'Agosto';break;
+                case 9 : document.formcalendario.nomemes.value = 'Setembro';break;
+                case 10 : document.formcalendario.nomemes.value = 'Outubro';break;
+                case 11 : document.formcalendario.nomemes.value = 'Novembro';break;
+                case 12 : document.formcalendario.nomemes.value = 'Dezembro';break;
+                default : document.formcalendario.nomemes.value = 'Mês Inválido!!!';break;
+            }
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>
