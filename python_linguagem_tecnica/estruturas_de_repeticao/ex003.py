@@ -1,3 +1,10 @@
+# 3. Crie um programa que solicite ao usuário uma quantidade indefinida de valores
+# numéricos. O programa deve calcular e exibir a média aritmética dos números
+# inseridos, além de contar quantos desses números são positivos e quantos são
+# negativos. Finalmente, calcule e apresente a porcentagem de números positivos e
+# negativos. Considere que o usuário deve inserir pelo menos um número positivo e
+# um negativo.
+
 qtd = int(input("Quantos números você quer inserir? "))
 qtd_positivo = 0
 qtd_negativo = 0

@@ -1,3 +1,8 @@
+# 1. Desenvolva um algoritmo que, dentro de um intervalo específico de números (de 1
+# a 500), selecione e some os números que atendam a dois critérios: serem ímpares e
+# também múltiplos de três. Além disso, exiba o total de números que atenderam a
+# esses critérios.
+
 cont = 0
 soma = 0
 sequencia = " "
