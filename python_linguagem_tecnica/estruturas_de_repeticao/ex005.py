@@ -14,9 +14,10 @@ valor = 0
 
 while (True):
     valor = int(input("Digite um número: "))
-
-    if valor <= 0:
+    if valor == 0:
         break
+    while (valor < 0):
+        valor = int(input("Digite um valor positivo: "))
 
     soma += valor
     contador += 1
