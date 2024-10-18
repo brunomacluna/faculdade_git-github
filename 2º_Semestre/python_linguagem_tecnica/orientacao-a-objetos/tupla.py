@@ -3,13 +3,13 @@ class Aluno:
         self.nome = nome
         self.notas = notas
 
-    def calcuca_media(self):
+    def calcula_media(self):
         if len(self.notas) == 3:
             return (((self.notas[0] + self.notas[1])/2) + self.notas[2]) / 2
         return sum(self.notas) / len(self.notas)
     
     def imprimir(self):
-        media = self.calcuca_media()
+        media = self.calcula_media()
         if media >= 6:
             print(f"Aluno Aprovado, Nome {self.nome} com Média {media}")
         else:
