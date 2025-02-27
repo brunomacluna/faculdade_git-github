@@ -1,0 +1,62 @@
+/* 
+Este script realiza um teste de carga para avaliar a performance do endpoint de consulta de dados de crocodilos (/my/crocodiles) após autenticação. Ele simula 100 usuários virtuais enviando requisições por 10 segundos e verifica se as respostas HTTP têm o status code 200. Após o teste, um relatório HTML é gerado para análise dos resultados.
+
+Este tipo de teste é essencial para garantir que o sistema pode lidar com uma alta carga de requisições, mantendo a performance e a disponibilidade, e identificando possíveis problemas de desempenho antes de colocar o sistema em produção.
+*/
+
+/*
+Análise do Resultado do Teste:
+Execução:
+
+Script: teste-cinco.js
+
+Duração Total: 12.5 segundos
+
+Usuários Virtuais (VUs): 100
+
+Iterações:
+
+Iterações Completas: 2890
+
+Geração de Relatório:
+
+Relatório HTML: Gerado com sucesso (relatorio-5.html)
+
+Métricas Relevantes:
+http_req_failed: 50% das requisições falharam (2919 de 5837), ultrapassando o threshold definido.
+
+checks (validação de sucesso): 0% (0 de 2918) das verificações de status code 200 foram bem-sucedidas.
+
+Estatísticas Detalhadas:
+Duração das Requisições HTTP:
+
+Média: 164.1ms
+
+Mínima: 148.96ms
+
+Mediana: 159.18ms
+
+Máxima: 1.75s
+
+Percentil 90: 162.92ms
+
+Percentil 95: 171.29ms
+
+Latência das Requisições:
+
+Bloqueio: média de 10.3ms (máxima de 2.01s)
+
+Conexão: média de 3.02ms (máxima de 202.38ms)
+
+TLS Handshake: média de 7.27ms (máxima de 1.83s)
+
+Aguardando Resposta: média de 163.95ms (máxima de 1.75s)
+
+Principais Problemas:
+Falhas de Requisição (http_req_failed):
+
+50% das requisições falharam, indicando que há um problema significativo com as requisições GET para o endpoint /my/crocodiles.
+
+Verificações de Status Code:
+
+Nenhuma das requisições retornou um status code 200, o que sugere que o endpoint pode não estar respondendo corretamente.

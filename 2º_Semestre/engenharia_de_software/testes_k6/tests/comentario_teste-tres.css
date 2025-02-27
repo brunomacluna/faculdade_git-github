@@ -1,0 +1,31 @@
+/* Este script testa a capacidade do endpoint de registro de usuários (http://test-api.k6.io/user/registrer) de lidar com múltiplas requisições em um curto período. Ele simula 10 usuários virtuais fazendo requisições de registro durante 10 segundos e verifica se a API responde corretamente com um status 201. Após o teste, um relatório HTML é gerado para análise dos resultados.
+
+Este tipo de teste é essencial para garantir que o sistema de registro de usuários é robusto e pode lidar com uma carga significativa de requisições sem falhas, e também para identificar possíveis pontos de falha antes de colocar o sistema em produção.
+*/
+
+/*
+RESULTADO
+
+Resumo do Resultado do Teste:
+Execução:
+
+Script: teste-tres.js
+
+Duração: 10 segundos
+
+Usuários Virtuais (VUs): até 10
+
+Total de Iterações:
+
+Iterações Completas: 35
+
+Geração do Relatório:
+
+Relatório HTML: Foi gerado com sucesso (relatorio-3.html).
+
+Foco no Erro:
+O teste falhou nos thresholds definidos para checks e http_req_failed:
+
+Threshold checks: Exigia que mais de 95% das verificações fossem bem-sucedidas.
+
+Threshold http_req_failed: Esperava que menos de 1% das requisições falhassem.

@@ -1,0 +1,58 @@
+/*
+Esse teste vai verificar várias coisas importantes sobre o desempenho e a confiabilidade do endpoint http://test.k6.io. 
+
+Taxa de Falhas (http_req_failed): Mede se a taxa de falhas das requisições é menor que 1%. Isso garante que quase todas as requisições são bem-sucedidas.
+
+Duração das Requisições (http_req_duration): Verifica se 95% das requisições são concluídas em menos de 200ms. Isso garante que a maioria das requisições são rápidas.
+
+Verificações (checks): Verifica se a taxa de verificações bem-sucedidas é maior que 99%. Especificamente, verifica se o código de status da resposta HTTP é 200.
+
+Esses testes ajudam a garantir que o endpoint seja rápido, confiável e capaz de lidar com as solicitações dentro dos limites especificados
+*/
+
+/*
+RESULTADO
+
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\exemplos> k6 run exemplo-threshoulds.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+WARN[0000] There were unknown fields in the options exported in the script  error="json: unknown field \"threshoulds\""
+     execution: local
+        script: exemplo-threshoulds.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 33s max duration (incl. graceful stop):
+              * default: 1 looping VUs for 3s (gracefulStop: 30s)
+
+
+     ✓ status code é 200
+
+     checks.........................: 100.00% 8 out of 8
+     data_received..................: 100 kB  33 kB/s
+     data_sent......................: 2.0 kB  647 B/s
+     http_req_blocked...............: avg=33.9ms   min=0s       med=0s       max=327.92ms p(90)=107.28ms p(95)=242.51ms
+     http_req_connecting............: avg=19.35ms  min=0s       med=0s       max=155.6ms  p(90)=77.02ms  p(95)=154.44ms
+     http_req_duration..............: avg=155.55ms min=153.25ms med=155.64ms max=158.22ms p(90)=156.69ms p(95)=157.12ms
+       { expected_response:true }...: avg=155.55ms min=153.25ms med=155.64ms max=158.22ms p(90)=156.69ms p(95)=157.12ms
+     http_req_failed................: 0.00%   0 out of 16
+     http_req_receiving.............: avg=1.46ms   min=0s       med=104.85µs max=11.26ms  p(90)=4.74ms   p(95)=8.09ms
+     http_req_sending...............: avg=79.41µs  min=0s       med=0s       max=635.1µs  p(90)=317.79µs p(95)=542.1µs
+     http_req_tls_handshaking.......: avg=10.86ms  min=0s       med=0s       max=173.86ms p(90)=0s       p(95)=43.46ms
+     http_req_waiting...............: avg=154.01ms min=145.36ms med=154.79ms max=157.36ms p(90)=155.97ms p(95)=156.49ms
+     http_reqs......................: 16      5.277282/s
+     iteration_duration.............: avg=378.91ms min=309.53ms med=311.5ms  max=853.69ms p(90)=475.2ms  p(95)=664.44ms
+     iterations.....................: 8       2.638641/s
+     vus............................: 1       min=1       max=1
+     vus_max........................: 1       min=1       max=1
+
+
+running (03.0s), 0/1 VUs, 8 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  3s
+
+O teste executou 16 requisições HTTP em 3 segundos com um usuário virtual, medindo várias métricas de desempenho. A verificação do status code 200 passou em todas as requisições. Os tempos de requisição foram dentro do esperado, e nenhuma falha de requisição foi registrada.
+*/

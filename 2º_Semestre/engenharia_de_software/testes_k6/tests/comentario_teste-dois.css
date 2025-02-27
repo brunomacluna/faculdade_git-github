@@ -1,0 +1,12 @@
+/* Objetivo do Script Este script realiza um teste de carga no endpoint https://test.k6.io/pi.php, variando o número de decimais usados no cálculo de Pi. Ele simula diferentes níveis de usuários virtuais ao longo de 30 segundos. Durante o teste, ele faz requisições GET para a URL e verifica se a resposta HTTP tem o status code 200. Após o teste, gera um relatório HTML com os resultados.
+
+Este tipo de teste é essencial para avaliar a robustez e a eficácia do endpoint sob diferentes condições de carga, garantindo que ele responda corretamente e de forma ágil, mesmo quando a demanda varia. É especialmente útil para identificar possíveis gargalos de desempenho e problemas de disponibilidade antes de lançar o serviço em um ambiente de produção.
+*/
+
+/*
+RESULTADO
+Sucesso Total nos Checks: Todos os checks passaram, indicando que todas as requisições obtiveram o status 200.
+
+Desempenho Sólido: A duração média das requisições foi de aproximadamente 159ms, com 95% das requisições sendo respondidas em menos de 162ms, atendendo ao threshold definido.
+
+Nenhuma Falha de Requisição: Todas as 179 requisições foram bem-sucedidas, sem nenhuma falha.

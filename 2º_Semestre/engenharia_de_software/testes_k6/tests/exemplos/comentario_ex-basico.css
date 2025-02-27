@@ -1,0 +1,57 @@
+/* 
+Este teste com o K6 é bem básico e serve principalmente para verificar se o ambiente de testes está configurado corretamente.
+
+Inicialização: Importa a função sleep do K6.
+
+Configuração: Define as opções do teste, com 1 usuário virtual (vus: 1) executando o teste por 10 segundos (duration: '10s').
+
+Execução: A função principal (default function) imprime "testando o k6" no console e pausa por 1 segundo a cada iteração.
+
+Desmontagem: A função teardown é chamada no final do teste para processar qualquer dado final (aqui, apenas imprime o dado no console).
+
+Esse código configura um teste simples que roda por 10 segundos com um único usuário virtual, imprime uma mensagem a cada segundo, e depois exibe quaisquer dados finais.
+
+/*
+RESULTADO
+
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\exemplos> k6 run exemplo-basico.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: exemplo-basico.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 40s max duration (incl. graceful stop):
+              * default: 1 looping VUs for 10s (gracefulStop: 30s)
+
+INFO[0000] testando o k6                                 source=console
+INFO[0001] testando o k6                                 source=console
+INFO[0002] testando o k6                                 source=console
+INFO[0003] testando o k6                                 source=console
+INFO[0004] testando o k6                                 source=console
+INFO[0005] testando o k6                                 source=console
+INFO[0006] testando o k6                                 source=console
+INFO[0007] testando o k6                                 source=console
+INFO[0008] testando o k6                                 source=console
+INFO[0009] testando o k6                                 source=console
+INFO[0010] undefined                                     source=console
+
+     data_received........: 0 B 0 B/s
+     data_sent............: 0 B 0 B/s
+     iteration_duration...: avg=1s min=1s med=1s max=1s p(90)=1s p(95)=1s
+     iterations...........: 10  0.998844/s
+     vus..................: 1   min=1      max=1
+     vus_max..............: 1   min=1      max=1
+
+
+running (10.0s), 0/1 VUs, 10 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  10s
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\exemplos> 
+
+O teste foi executado conforme esperado, com 10 iterações completas em 10 segundos. O script funcionou corretamente, imprimindo a mensagem "testando o k6" a cada segundo e pausando por 1 segundo entre as iterações. Nenhum dado foi enviado ou recebido, o que é consistente com o propósito do script básico.
+*/

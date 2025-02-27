@@ -1,0 +1,59 @@
+/* 
+Esse teste com o K6 vai medir várias coisas importantes sobre o desempenho do endpoint http://test.k6.io:
+
+Quantidade de Chamadas: Conta quantas vezes o teste faz a requisição ao endpoint.
+
+Tempo Bloqueado: Mede quanto tempo a requisição fica "bloqueada" antes de ser enviada (talvez por causa de limitações de rede ou servidor).
+
+Taxa de Sucesso (Status 200): Calcula quantas vezes o servidor respondeu com um status 200, que significa "OK" ou sucesso.
+
+Tempo de Espera: Registra quanto tempo leva para o servidor responder após a requisição ser enviada.
+
+Esse teste verifica a frequência, eficiência, e confiabilidade da comunicação com o endpoint, garantindo que ele responda de maneira rápida e correta.
+*/
+
+/*
+RESULTADO
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\exemplos> k6 run exemplo-metricas.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: exemplo-metricas.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 33s max duration (incl. graceful stop):
+              * default: 1 looping VUs for 3s (gracefulStop: 30s)
+
+
+     data_received..................: 77 kB   23 kB/s
+     data_sent......................: 1.6 kB  462 B/s
+     http_req_blocked...............: avg=70.86ms    min=0s       med=0s       max=509.59ms p(90)=306.67ms p(95)=416.73ms
+     http_req_connecting............: avg=26.47ms    min=0s       med=0s       max=159.43ms p(90)=142.38ms p(95)=158.75ms
+     http_req_duration..............: avg=209.91ms   min=154.22ms med=160.75ms max=445.77ms p(90)=315.4ms  p(95)=378.87ms
+       { expected_response:true }...: avg=209.91ms   min=154.22ms med=160.75ms max=445.77ms p(90)=315.4ms  p(95)=378.87ms
+     http_req_failed................: 0.00%   0 out of 12
+     http_req_receiving.............: avg=1.48ms     min=0s       med=192.1µs  max=12.48ms  p(90)=2.95ms   p(95)=7.38ms
+     http_req_sending...............: avg=0s         min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s
+     http_req_tls_handshaking.......: avg=15.1ms     min=0s       med=0s       max=181.31ms p(90)=0s       p(95)=81.59ms
+     http_req_waiting...............: avg=208.43ms   min=143.23ms med=159.92ms max=445.77ms p(90)=315.4ms  p(95)=378.87ms
+     http_reqs......................: 12      3.560597/s
+     iteration_duration.............: avg=561.69ms   min=351.99ms med=435.13ms max=1.17s    p(90)=886.37ms p(95)=1.02s
+     iterations.....................: 6       1.780299/s
+     quantidade_de_chamadas.........: 6       1.780299/s
+     taxa_req_200...................: 100.00% 6 out of 6
+     tempo_bloqueado................: 0       min=0       max=340.7547
+     txa_de_espera..................: avg=264.217267 min=164.1237 med=227.4909 max=445.7759 p(90)=384.96   p(95)=415.36795
+     vus............................: 1       min=1       max=1
+     vus_max........................: 1       min=1       max=1
+
+
+running (03.4s), 0/1 VUs, 6 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  3s
+
+O teste executou 12 requisições HTTP durante 3 segundos com um usuário virtual, medindo várias métricas de desempenho, como tempos de bloqueio, conexão, duração das requisições, e tempo de espera. As métricas indicam que o servidor respondeu com sucesso a todas as requisições, mantendo tempos de resposta dentro de um intervalo aceitável.
+*/
