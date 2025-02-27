@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel('dados_clientes.xlsx')
+df = pd.read_excel("dados_clientes.xlsx")
 
 print(df.head())
 
