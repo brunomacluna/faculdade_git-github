@@ -1,0 +1,28 @@
+/*
+Este script é usado para automatizar a interação com uma página web, especificamente uma loja online. Ele navega até a página inicial do site, captura uma tela, interage com um produto e captura outra tela. O objetivo é testar a funcionalidade da interface do usuário, como o carregamento de elementos e a capacidade de adicionar um produto ao carrinho. As capturas de tela ajudam a verificar visualmente o estado da página durante o teste. Após a execução, um relatório HTML é gerado para análise dos resultados.
+*/
+
+/*
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\front> k6 run teste-front-dois.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+WARN[0000] Please update your imports to use k6/browser instead of k6/experimental/browser, which will be removed after September 23rd, 2024 (v0.54.0). Ensure your scripts are migrated by then. For more information, see the migration guide at the link: https://grafana.com/docs/k6/latest/using-k6-browser/migrating-to-k6-v0-52/
+     execution: local
+        script: teste-front-dois.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+ERRO[0000] Uncaught (in promise) TypeError: Cannot read property 'launch' of undefined or null
+        at default (file:///C:/Users/Bruno/faculdade_git-github/2%C2%BA_Semestre/engenharia_de_software/testes_k6/tests/front/teste-front-dois.js:7:19(2))  executor=per-vu-iterations scenario=default
+INFO[0000] [k6-reporter v2.3.0] Generating HTML summary report  source=console
+
+running (00m00.0s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  00m00.0s/10m0s  1/1 iters, 1 per VU
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests\front> 

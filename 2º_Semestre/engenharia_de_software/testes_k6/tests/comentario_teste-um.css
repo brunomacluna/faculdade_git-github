@@ -1,0 +1,57 @@
+/* Este script realiza um teste de carga simples no endpoint https://test.k6.io/contacts.php. Ele faz uma requisição GET a essa URL usando um único usuário virtual por um período de 3 segundos. Durante o teste, ele verifica se a resposta HTTP tem o status code 200. Após o teste, gera um relatório HTML com os resultados.
+
+Este tipo de teste é útil para validar a disponibilidade e a resposta de um endpoint específico, garantindo que ele esteja funcionando corretamente mesmo sob carga (neste caso, uma carga leve com apenas um usuário virtual). É especialmente valioso para identificar problemas de desempenho e disponibilidade antes de implantar um serviço em produção.
+*/
+
+/*
+RESULTADO
+
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests> k6 run teste-um.js
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: teste-um.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 33s max duration (incl. graceful stop):
+              * default: 1 looping VUs for 3s (gracefulStop: 30s)
+
+INFO[0003] [k6-reporter v2.3.0] Generating HTML summary report  source=console
+
+running (03.1s), 0/1 VUs, 18 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  3s
+PS C:\Users\Bruno\faculdade_git-github\2º_Semestre\engenharia_de_software\testes_k6\tests> 
+
+Informações Gerais
+Script Executado: teste-um.js
+
+Execução: Local
+
+Cenário
+Usuários Virtuais (VUs): 1
+
+Duração do Teste: 3 segundos
+
+Estatísticas de Execução
+Execução Total: 3 segundos
+
+VUs ativos: 1
+
+Iterações completas: 18
+
+Interrupções: 0
+
+Geração do Relatório
+Relatório: Um relatório HTML foi gerado usando k6-reporter v2.3.0.
+
+Interpretação
+Execução Sucessful: O teste foi executado conforme planejado, com 1 usuário virtual realizando a tarefa por 3 segundos.
+
+Iterações Completas: 18 iterações foram concluídas dentro do período de 3 segundos, indicando que o endpoint foi capaz de lidar com múltiplas requisições de forma eficiente.
+
+Sem Interrupções: Nenhuma interrupção nas iterações, o que é um bom sinal de estabilidade.

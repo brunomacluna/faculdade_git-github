@@ -1,0 +1,65 @@
+/* Este script realiza um teste de carga no endpoint de login de usuários (https://test-api.k6.io/auth/token/login/). Ele simula diferentes níveis de carga de usuários virtuais para avaliar a capacidade da API de lidar com múltiplas requisições de autenticação de forma eficiente e confiável. O teste verifica se o login é bem-sucedido e se o token de acesso é gerado corretamente. Após o teste, um relatório HTML é gerado para análise dos resultados, útil para identificar possíveis problemas de desempenho e disponibilidade.
+*/
+
+/*
+RESULTADO
+
+Análise do Resultado do Teste:
+Execução:
+
+Script: teste-quatro.js
+
+Duração Total: 33.5 segundos
+
+Usuários Virtuais (VUs): Até 50
+
+Iterações:
+
+Iterações Completas: 71
+
+Geração de Relatório:
+
+Relatório HTML: Gerado com sucesso (relatorio-4.html)
+
+Métricas Relevantes:
+http_req_failed: 100% das requisições falharam (67 de 67), ultrapassando o threshold definido.
+
+checks (validação de sucesso):
+
+sucesso login: 0% (0 de 67)
+
+token gerado: 100% (67 de 67)
+
+Estatísticas Detalhadas:
+Duração das Requisições HTTP:
+
+Média: 7.84s
+
+Mínima: 1.7s
+
+Mediana: 8.82s
+
+Máxima: 16.51s
+
+Percentil 90: 11.5s
+
+Percentil 95: 12.67s
+
+Latência das Requisições:
+
+Bloqueio: média de 236.2ms (máxima de 334.35ms)
+
+Conexão: média de 117.59ms (máxima de 171.59ms)
+
+TLS Handshake: média de 118.18ms (máxima de 165.65ms)
+
+Aguardando Resposta: média de 7.84s (máxima de 16.51s)
+
+Principais Problemas:
+Falhas de Requisição (http_req_failed):
+
+Todas as requisições falharam, indicando que algo está errado com as requisições POST para o endpoint /auth/token/login/.
+
+Lentidão no Tempo de Resposta:
+
+O tempo médio de resposta das requisições foi muito alto (7.84s), com picos de até 16.51s, o que é inaceitável para um endpoint de login.

@@ -1,0 +1,16 @@
+/*
+Este script é usado para automatizar a interação com uma página web, simulando um processo de login e capturando uma tela da página resultante. Ele é útil para testar o funcionamento de formulários de login em aplicações web e garantir que a interface do usuário funciona corretamente sob certas condições. Além disso, a captura de tela ajuda a verificar visualmente o estado da página durante o teste. Após a execução, um relatório HTML é gerado para análise dos resultados.
+*/
+
+/*
+
+O erro TypeError: Cannot read property 'launch' of undefined or null indica que a função launch não está sendo reconhecida, provavelmente porque o módulo chromium não foi importado corretamente.
+
+Possíveis Causas:
+Versão do k6:
+
+A funcionalidade chromium é experimental e pode não estar disponível na versão do k6 que você está usando. Certifique-se de que está utilizando uma versão do k6 que suporte esta funcionalidade.
+
+Configuração do Ambiente:
+
+As dependências necessárias para o módulo de navegador podem não estar configuradas corretamente no seu ambiente.
