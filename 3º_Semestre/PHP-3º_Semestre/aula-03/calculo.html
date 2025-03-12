@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatando dados com PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Formulário PHP</h1>
+    <hr>
+    <h2>Formulário de dados</h2>
+    <p>Dados obrigatórios</p>
+    <div class="principal">
+    <form name="form" action="calculo.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" size="30" name="nome" id="nome" placeholder="Digite aqui o Nome">
+        <br><br>
+        <label for="nota1">Digite a primeira nota</label>
+        <input type="number" size="30" name="nota1" id="nota1" placeholder="Digite aqui a nota">
+        <br><br>
+        <label for="nota2">Digite a segunda nota</label>
+        <input type="number" size="30" name="nota2" id="nota2" placeholder="Digite aqui a nota">
+        <br><br>
+        <label for="nota3">Digite a terceira nota</label>
+        <input type="number" name="nota3" id="nota3" placeholder="Digite aqui a nota">
+        <br>
+        <br>
+        <input type="submit" value="Calcular">
+    </form> 
+</div>
+</body>
+</html>
