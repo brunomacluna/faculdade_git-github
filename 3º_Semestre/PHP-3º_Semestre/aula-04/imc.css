@@ -1,0 +1,13 @@
+body{
+    margin:auto;
+}
+.principal{
+    margin:auto;
+    text-align: center;
+    background-color: greenyellow;
+    vertical-align: center;
+    max-width: 500px;
+    margin-top: 10%;
+    border-radius: 10px;
+    font: verdana, Geneva, Tahoma, sans-serif;
+}
