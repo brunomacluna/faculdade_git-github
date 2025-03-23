@@ -6,15 +6,15 @@ public class Ex3 {
 		
 		Scanner input = new Scanner(System.in);
 		
-		int positivos = 0;
-		int negativos = 0;
-		int contador = 0;
+		double positivos = 0;
+		double negativos = 0;
+		double contador = 0;
 		double media_aritimetica = 0;
-		int total = 0;
+		double total = 0;
 		
 		while (true) {
 			System.out.print("Digite um valor: ");
-			int valor = input.nextInt();
+			double valor = input.nextDouble();
 			contador++;
 			total += valor;
 			
@@ -35,15 +35,16 @@ public class Ex3 {
 			}//fim else
 		}//fim while 1	
 				
+		double percentual_positivo = positivos * 100 / contador;
+		double percentual_negativo = negativos * 100 / contador;
+		media_aritimetica = total / contador;
 		
-		media_aritimetica = (double) total / contador;
-		
-		System.out.println("Média aritimética: "+media_aritimetica);
+		System.out.println("Média aritimética: "+Math.round(media_aritimetica));
 		System.out.println("Números positivos: "+positivos);
 		System.out.println("Números negativos: "+negativos);
-		System.out.println("Porcentagem dos positivos: "+((double)positivos / total * 100));
-		System.out.println("Porcentegam do negativos: "+((double)negativos / total * 100));
-	}//fim calculoEx3
+		System.out.println("Porcentagem dos positivos: "+(Math.round(percentual_positivo))+"% do total.");
+		System.out.println("Porcentegam do negativos: "+(Math.round(percentual_negativo))+"% do total.");
+	}//fim metodo calculoEx3
 }//fim class Ex3
 /*
 3. Crie um programa que solicite ao usuário uma quantidade indefinida de valores
