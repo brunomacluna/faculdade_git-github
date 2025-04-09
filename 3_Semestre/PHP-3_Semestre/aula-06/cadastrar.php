@@ -1,21 +1,25 @@
 <?php 
-    include_once('conexao.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $data = $_POST['data'];
+include_once('conexao.php');
 
-    $sql = "insert into usuarios values(null,'{$nome}','{$senha}','{$email}','{$cpf}','{$data}');";
+$nome = $_POST['nome'];
+$senha = $_POST['senha'];
+$email = $_POST['email'];
+$cpf = $_POST['cpf'];
+$data = $_POST['data']; // Verifique se esse campo existe no formulário
 
-    $res = $conn -> query($sql);
+$sql = "INSERT INTO usuarios (nome, senha, email, cpf, data) 
+        VALUES ('{$nome}', '{$senha}', '{$email}', '{$cpf}', '{$data}');";
 
-    if ($res = true){
-        print("<script> alert('Cadastro efetuado com sucesso!');</script>");
-        print("<script> location.href='crud.html'; </script>");
-    }else {
-        print("<script> alert('Erro ao cadastrar! Verifique!');</script>");
-    }
 
+$res = $conn->query($sql);
+
+if ($res) {
+    echo "<script>alert('Cadastro efetuado com sucesso!');</script>";
+    echo "<script>location.href='crud.html';</script>";
+} else {
+    echo "<script>alert('Erro ao cadastrar! Verifique!');</script>";
+}
 ?>
