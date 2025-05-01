@@ -37,9 +37,12 @@ if($qtde > 0){
         print('<td>'.$row -> cpf.'</td>');
         print('<td>'.$row -> data.'</td>');
         print('<td>
-        <button class="btn btn-success">Editar</button>
-        <button class="btn btn-danger">Excluir</button>
-        </td>');
+        <button class="btn btn-success" onclick="location.href=\'editar.php?codigo=' . $row->codigo . '\'">Editar</button>
+        <button class="btn btn-danger" onclick="location.href=\'deletar.php?codigo=' . $row->codigo . '\'">Excluir</button>
+      </td>');
+      
+print('</tr>');
+
         
         print('</tr>');
         
