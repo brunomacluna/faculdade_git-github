@@ -1,5 +1,5 @@
 <?php
-require(conexao.php);
+require("conexao.php");
 if(isset($_POST['update']))
 {
     $codigo = $_POST['cod'];

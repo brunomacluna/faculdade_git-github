@@ -3,7 +3,7 @@ if(!empty($codigo = $_GET['codigo']))
 {
 include_once("conexao.php");
 $codigo = $_GET["codigo"];
-$sql = "select * from usuarios where codigo=$codigo;"
+$sql = "select * from usuarios where codigo=$codigo";
 $res = $conn->query($sql);
 if ($res==true) {
     while ($row = mysql_fetch_assoc($res))
@@ -52,26 +52,3 @@ if ($res==true) {
         </div>
         <div class="col-md-6">
           <label for="inputAddress2" class="form-label">CPF</label>
-          <input type="text" class="form-control" name="cpf" placeholder="Digite aqui seu CPF" value="<?php echo $cpf?>">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">Data</label>
-          <input type="date" class="form-control" name="data" value="<?php echo $data?>">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Concordo com os termos.
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <input type="submit" class="btn btn-primary" id="update" name="update" value="Atualizar">
-          <input type="hidden" name="cod" id="cod" value="<?php echo $codigo?>">
-        </div>
-      </form>
-     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
