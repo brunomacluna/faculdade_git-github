@@ -1,0 +1,569 @@
+/*ARQUIVO index.php*/
+/* Estilos globais/básicos */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos do cabeçalho (Header) */
+header {
+    background-color: DarkGoldenrod;
+    color: white;
+    padding: 15px 20px;
+    text-align: center; /* Mantido para centralização de texto geral */
+    display: flex;
+    justify-content: space-between; /* Este é o principal diferencial */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Tamanho do index.php parece um bom padrão */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Garante que ocupa a largura total disponível */
+}
+
+header p {
+    font-size: 1.1em; /* Um bom tamanho de fonte para a descrição */
+    margin: 0; /* Remove margens padrão que podem atrapalhar o layout */
+    text-align: center; /* Garante que o texto seja centralizado */
+    width: 100%; /* Ocupa a largura total para melhor alinhamento */
+}
+
+/* Contêiner do botão de login no header */
+.login-container {
+    position: absolute;
+    top: 15px; /* Ajuste a distância do topo */
+    right: 20px; /* Ajuste a distância da direita */
+    /* margin-left: auto; Pode ser removido, pois o position absolute anula */
+}
+
+.botao-login {
+    background-color: DodgerBlue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao-login:hover {
+    background-color: #1E90FF;
+}
+
+/* Estilos do conteúdo principal (Main) */
+main {
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    padding: 20px;
+    width: 90%; /* Define uma largura base para o conteúdo */
+    max-width: 100%; /* Limita a largura máxima para telas grandes */
+    margin: 20px auto; /* Centraliza o conteúdo horizontalmente com margem */
+    background-color: #f9f9f9; /* Uma cor de fundo suave para a área principal */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    display: flex; /* Permite controlar o layout interno do main */
+    flex-direction: column; /* Organiza itens em coluna */
+    align-items: center; /* Centraliza itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os elementos filhos do main */
+}
+
+/* Estilos para o contêiner das imagens de destaque - APENAS para index.php */
+.imagens-destaque {
+    display: flex;
+    flex-direction: row; /* Para que as imagens fiquem lado a lado */
+    justify-content: center; /* Centraliza as imagens horizontalmente dentro da linha */
+    align-items: center; /* Alinha as imagens verticalmente no centro da div */
+    gap: 20px; /* Espaço entre as imagens */
+    width: 100%; /* Garante que a div ocupe a largura total disponível no main */
+    max-width: 2000px; /* Aumentei ligeiramente o max-width para dar mais espaço */
+    margin: 0 auto; /* Centraliza a div imagens-destaque dentro do main */
+    flex-wrap: wrap; /* Permite que as imagens quebrem linha, se necessário */
+    height: 100%; /* Garante que a div ocupe a altura disponível dentro do main */
+}
+
+/* Estilos para as imagens dentro do contêiner - APENAS para index.php */
+.imagens-destaque img {
+    width: 45%; /* Reduzi um pouco a largura para ter mais "folga" e evitar quebra de linha indesejada */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse seu próprio espaço */
+    object-fit: contain; /* Garante que a imagem caiba sem cortar, mantendo proporção */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do rodapé (Footer) */
+footer {
+    background-color: DarkGoldenrod;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Garante que o footer fique na parte inferior da página */
+}
+
+/* ARQUIVO login.php */
+        
+        .login-container, .back-button-header {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .login-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+       .input-group {
+    margin-bottom: 15px; /* Espaço entre os grupos de input */
+    width: 100%; /* Garante que ocupe a largura total disponível */
+}
+
+.input-group label {
+    display: block; /* Garante que o label ocupe sua própria linha */
+    margin-bottom: 5px; /* Espaço entre o label e o input */
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 22px); /* 100% da largura menos o padding e borda */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+        .botao-login, .botao-cadastro, .botao-voltar {
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .botao-login {
+            background-color: DodgerBlue;
+            margin-top: 10px;
+        }
+
+        .botao-login:hover {
+            background-color: #1E90FF;
+        }
+
+        .cadastro-link {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #666;
+            width: 100%;
+        }
+
+        .cadastro-link a {
+            text-decoration: none;
+        }
+
+        .botao-cadastro {
+            background-color: DarkGoldenrod;
+            margin-top: 10px;
+        }
+
+        .botao-cadastro:hover {
+            background-color: #B8860B;
+        }
+
+        .botao-voltar {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .botao-voltar:hover {
+            background-color: #5a6268;
+        }
+
+        /* Estilo para mensagens de erro */
+        .error-message {
+            background-color: #f8d7da; /* Fundo vermelho claro */
+            color: #721c24; /* Texto vermelho escuro */
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+/*ARQUIVO cadastro.css*/
+
+        .cadastro-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .cadastro-image {
+            max-width: 80%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .botao-cadastro-submit, .botao-voltar-login {
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .botao-cadastro-submit {
+            background-color: DarkGoldenrod;
+        }
+
+        .botao-cadastro-submit:hover {
+            background-color: #B8860B;
+        }
+
+        .botao-voltar-login {
+            background-color: #6c757d;
+        }
+
+        .botao-voltar-login:hover {
+            background-color: #5a6268;
+        }
+
+/*ARQUIVO crud.css*/
+        
+        header .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 5px; /* Espaçamento para telas menores */
+        }
+
+        header .header-right p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .logout-button {
+    background-color: #dc3545; /* Vermelho padrão para "sair" */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove sublinhado de link */
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Vermelho um pouco mais escuro no hover */
+}
+
+    .message-box {
+    padding: 10px;
+    margin-bottom: 20px; /* Espaço abaixo da mensagem */
+    border-radius: 5px;
+    text-align: center;
+    width: 100%; /* Garante que ocupe a largura do seu contêiner */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+.message-box.success {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde escuro */
+    border: 1px solid #c3e6cb;
+}
+
+.message-box.error {
+    background-color: #f8d7da; /* Vermelho claro */
+    color: #721c24; /* Vermelho escuro */
+    border: 1px solid #f5c6cb;
+}
+
+       h2 {
+    color: DarkGoldenrod; /* Cor para todos os títulos h2 */
+    padding-bottom: 10px; /* Espaçamento abaixo do texto */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    border-bottom: 2px solid #eee; /* Linha sutil abaixo do título */
+    text-align: center; /* Centraliza o título */
+}
+
+        .form-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .form-section form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="number"],
+        .form-section input[type="text"][name="preco"] { /* Preço como texto para aceitar vírgula inicialmente */
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-section button {
+            background-color: DodgerBlue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            grid-column: span 2; /* Faz o botão ocupar as duas colunas */
+            margin-top: 10px;
+        }
+
+        .form-section button:hover {
+            background-color: #1E90FF;
+        }
+
+        /* NOVO ESTILO para o cabeçalho da tabela com o botão PDF */
+        .table-header-controls {
+            display: flex; /* Permite alinhar itens na mesma linha */
+            justify-content: space-between; /* Distribui o espaço entre os itens */
+            align-items: center; /* Alinha verticalmente no centro */
+            margin-top: 40px; /* Espaço acima desta seção */
+            border-bottom: 2px solid #eee; /* Linha abaixo do título e botão */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+       .table-header-controls h2 {
+    margin: 0; /* Remove margem padrão do h2 para alinhar com o botão */
+    padding: 0; /* Remove padding padrão do h2 */
+    border-bottom: none; /* Garante que o h2 não tenha sua própria borda inferior */
+}
+
+        /* Ajuste no botão PDF para não ter as margens automáticas ou display block */
+        .pdf-button {
+            background-color: #28a745; /* Verde */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            /* Removidas as propriedades que centralizavam e davam margin-top */
+            margin-top: 0; /* Garante que não há margem superior extra */
+            display: inline-block; /* Permite que ele fique na mesma linha com outros elementos */
+            width: auto; /* Remove a largura total */
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .pdf-button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0; /* Remove a margem superior para ficar logo abaixo do header-controls */
+            background-color: #fff;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: DarkGoldenrod;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            margin-right: 5px;
+            font-size: 0.9em;
+        }
+
+        .action-buttons .edit-button {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .action-buttons .edit-button:hover {
+            background-color: #e0a800;
+        }
+
+        .action-buttons .delete-button {
+            background-color: #dc3545;
+        }
+
+        .action-buttons .delete-button:hover {
+            background-color: #c82333;
+        }
+
+/*ARQUIVO editar_livro.php*/
+       
+        header .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        header .header-right p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .logout-button {
+    background-color: #dc3545; /* Vermelho padrão para "sair" */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove sublinhado de link */
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Vermelho um pouco mais escuro no hover */
+}
+
+        .edit-form-section {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .edit-form-section form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .edit-form-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .edit-form-section input[type="text"],
+        .edit-form-section input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-actions {
+            grid-column: span 2;
+            display: flex; /* Adicionado para alinhar os botões */
+            justify-content: space-between; /* Alinha um de cada lado */
+            padding-top: 10px;
+        }
+
+        .form-actions button,
+        .form-actions a.button { /* Aplica estilo aos botões e links com classe button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Remover sublinhado de links */
+            display: inline-block; /* Para que padding e margem funcionem corretamente */
+            text-align: center;
+        }
+
+        .save-button {
+            background-color: DarkGoldenrod;
+        }
+        .save-button:hover {
+            background-color: #B8860B;
+        }
+
+        /* O botão "Voltar" agora usa a mesma cor e hover do "Salvar" */
+        .back-button-styled {
+            background-color: DarkGoldenrod;
+        }
+        .back-button-styled:hover {
+            background-color: #B8860B;
+        }
+       
