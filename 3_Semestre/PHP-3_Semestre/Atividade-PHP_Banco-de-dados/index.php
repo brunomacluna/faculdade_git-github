@@ -2,7 +2,7 @@
 $erro = "";
 
 // Conectar ao banco de dados
-$conn = new mysqli("localhost", "root", "Baton665", "Atividade-PHP");
+$conn = new mysqli("localhost", "root", "", "Atividade-PHP");
 
 // Verificar conexão
 if ($conn->connect_error) {

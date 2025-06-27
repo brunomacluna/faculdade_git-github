@@ -3,7 +3,7 @@
 
 define('HOST', 'localhost');
 define('USER', 'root'); 
-define('PASS', 'Baton665');
+define('PASS','');
 define('BASE', 'cadastro1');
 
 // Ajuste para conexão via socket (Arch/Manjaro)
