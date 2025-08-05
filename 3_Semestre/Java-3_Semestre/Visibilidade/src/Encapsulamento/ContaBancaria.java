@@ -1,6 +1,7 @@
 package Encapsulamento;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContaBancaria {
@@ -31,9 +32,17 @@ public class ContaBancaria {
 	public String getTitular() {
 		return this.titular;
 	}//fim getTitular
+	// Método para obter o saldo
+	public double getSaldo() {
+	    return this.saldo;
+	}
 	public void setSaldo(double novoSaldo) {
 		this.saldo = novoSaldo;
 	}//fim setSaldo
+	// Método para obter o histórico (retorna a lista)
+	public List<String> getHistorico() {
+	    return this.historico;
+	}
 	public void depositar(double novoDeposito) {
 		if (novoDeposito <= 0) {
 			System.out.println("Valor Inválido");

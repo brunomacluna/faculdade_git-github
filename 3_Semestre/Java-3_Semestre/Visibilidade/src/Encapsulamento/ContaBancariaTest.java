@@ -1,5 +1,7 @@
 package Encapsulamento;
 
+import java.util.List;
+
 public class ContaBancariaTest {
 	public static void main(String[] args) {
 		ContaBancaria obj = new ContaBancaria("Maria Joaquina", 0);

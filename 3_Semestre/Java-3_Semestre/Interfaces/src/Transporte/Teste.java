@@ -1,6 +1,6 @@
 package Transporte;
 
-import java.uti.Scanner;
+import java.util.Scanner;
 
 public class Teste {
 

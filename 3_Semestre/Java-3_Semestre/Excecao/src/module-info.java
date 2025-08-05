@@ -5,5 +5,5 @@
  * @author bruno
  *
  */
-module Teste {
+module Excecao {
 }
