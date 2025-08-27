@@ -1,8 +1,7 @@
 package Pack2;
 
 import java.util.Scanner;
-
-import pack1.Visibilidade;
+import Pack1.Visibilidade;
 
 public class Teste2 {
 	public static void main(String[] args) {
