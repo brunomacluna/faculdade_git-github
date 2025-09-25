@@ -1,4 +1,4 @@
-package com.example.aula07;
+package com.example.prova01;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -22,38 +22,69 @@ public class TelaResultado extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
-        //faça seu código abaixo
+        });//ViewCompat
+
         resultado = findViewById(R.id.textViewResultado);
+
         String resposta1 = getIntent().getStringExtra("chaveResposta1");
         String resposta2 = getIntent().getStringExtra("chaveResposta2");
         String resposta3 = getIntent().getStringExtra("chaveResposta3");
+        String resposta4 = getIntent().getStringExtra("chaveResposta4");
 
-        int qtdAcertos = calcularQtdAcertos(resposta1, resposta2, resposta3);
+        int totalPontos = calcularPontuacao(resposta1, resposta2, resposta3, resposta4);
 
-        if(qtdAcertos == 3){
-            resultado.setText("Parabens, acertou as 3.");
-        } else if (qtdAcertos == 2) {
-            resultado.setText("Parabens, acertou 2.");
-        } else if (qtdAcertos == 1) {
-            resultado.setText("Só acertou uma, melhore!");
+        if(totalPontos == 4){
+            resultado.setText("Sua nota é: 10");
+        } else if (totalPontos == 2) {
+            resultado.setText("Sua nota é: 5");
         } else {
-            resultado.setText("Nenhuma mano, você marcou que a terra é plana??? auahuahua");
+            resultado.setText("Sua nota é: 0");
         }
 
-    }// onCreate
 
-    private int calcularQtdAcertos (String resposta1, String resposta2, String resposta3) {
-        int qtdAcertos = 0;
-        if(resposta1.equalsIgnoreCase("errado")){
-            qtdAcertos++;
+    }//onCreate
+
+    private int calcularPontuacao(String resposta1, String resposta2, String resposta3, String resposta4 ){
+        int pontos = 0;
+
+        if(resposta1.equalsIgnoreCase("certo")){
+            pontos++;
+        } else {
+            pontos--;
         }
-        if(resposta2.equalsIgnoreCase("errado")){
-            qtdAcertos++;
+        if (resposta2.equalsIgnoreCase("certo")) {
+            pontos++;
+        } else {
+            pontos--;
         }
-        if(resposta3.equalsIgnoreCase("errado")){
-            qtdAcertos++;
+        if (resposta3.equalsIgnoreCase("errado")) {
+            pontos++;
+        } else {
+            pontos--;
         }
-        return qtdAcertos;
-    }
+        if (resposta4.equalsIgnoreCase("certo")) {
+            pontos++;
+        } else {
+            pontos--;
+        }
+        if(pontos < 0) {
+            pontos = 0;
+        }
+
+        return pontos;
+    }//qtdDeAcertos
+
 }//TelaResultado
+
+
+
+
+
+
+
+
+
+
+
+
+
