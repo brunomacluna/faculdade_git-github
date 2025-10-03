@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">aula08</string>
+    <string name="opcao1">Certo</string>
+    <string name="opcao2">Errado</string>
+</resources>
