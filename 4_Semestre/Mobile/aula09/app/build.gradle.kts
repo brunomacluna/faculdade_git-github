@@ -1,3 +1,5 @@
+import com.android.build.gradle.tasks.writeAnnotationProcessorsToJsonFile
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -40,4 +42,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("androidx.room:room-runtime-android:2.8.2")
+    annotationProcessor("androidx.room:room-compiler:2.8.2")
 }
