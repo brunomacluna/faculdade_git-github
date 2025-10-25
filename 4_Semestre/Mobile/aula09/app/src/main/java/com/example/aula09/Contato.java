@@ -10,8 +10,6 @@ public class Contato {
     private int id;
     @ColumnInfo(name = "nome")
     private String nome;
-    @ColumnInfo
-    private String telefone;
 
     public int getId() {
         return id;
@@ -36,4 +34,9 @@ public class Contato {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @ColumnInfo(name = "telefone")
+    private String telefone;
+
+
 }

@@ -13,37 +13,42 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
 public class MainActivity extends AppCompatActivity {
-
     private EditText nome;
     private EditText telefone;
     private Button salvarContato;
-    private DataBase db;
+    private Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        nome = findViewById(R.id.editTextText);
+        nome = findViewById(R.id.editTextNome);
         telefone = findViewById(R.id.editTextPhone);
-        salvarContato = findViewById(R.id.button);
-        db = Room.databaseBuilder(getApplicationContext(), DataBase.class, "contatos.db").build();
+        salvarContato = findViewById(R.id.buttonSalvar);
+
+        db = Room.databaseBuilder(getApplicationContext(), Database.class, "contatos.db").build();
 
         salvarContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salvarBancoDeDados();
+                salvarContatoDb();
             }
         });
     }
 
-    private void salvarBancoDeDados() {
+    private void salvarContatoDb() {
         String nomeInformado = nome.getText().toString();
-        String telefoneInformado = telefone.getText().toString();;
-        Contato contatoAtual = new Contato();
-        contatoAtual.setNome(nomeInformado);
-        contatoAtual.setTelefone(telefoneInformado);
-        db.contatoDAO().insertContato(contatoAtual);
+        String telefoneInformado = telefone.getText().toString();
+        Contato contato = new Contato();
+        contato.setNome(nomeInformado);
+        contato.setTelefone(telefoneInformado);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                db.contatoDAO().insertContato(contato);
+            }
+        }).start();
+
     }
 }
