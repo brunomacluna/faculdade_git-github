@@ -11,6 +11,11 @@ public class Contato {
     @ColumnInfo(name = "nome")
     private String nome;
 
+    @Override
+    public String toString() {
+        return nome + " - " + telefone;
+    }
+
     public int getId() {
         return id;
     }
